@@ -3,11 +3,11 @@
   <title>Fimon&#39;s Wiki</title>
   
   
-  <link href="/notebook/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="https://fimon12138.github.io/notebook/"/>
+  <link href="http://wiki.hellofimon.icu/"/>
   <updated>2021-06-28T03:25:16.902Z</updated>
-  <id>https://fimon12138.github.io/notebook/</id>
+  <id>http://wiki.hellofimon.icu/</id>
   
   <author>
     <name>Fimon</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test</title>
-    <link href="https://fimon12138.github.io/notebook/wiki/test/"/>
-    <id>https://fimon12138.github.io/notebook/wiki/test/</id>
+    <link href="http://wiki.hellofimon.icu/wiki/test/"/>
+    <id>http://wiki.hellofimon.icu/wiki/test/</id>
     <published>2021-06-27T11:15:03.000Z</published>
     <updated>2021-06-28T03:25:16.902Z</updated>
     
@@ -34,7 +34,7 @@
     
     </summary>
     
-      <category term="test" scheme="https://fimon12138.github.io/notebook/categories/test/"/>
+      <category term="test" scheme="http://wiki.hellofimon.icu/categories/test/"/>
     
     
   </entry>
