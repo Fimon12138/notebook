@@ -2,37 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2021/06/27/test/</loc>
+    <loc>https://fimon12138.github.io/notebook/wiki/test/</loc>
     
-    <lastmod>2021-06-27T11:23:50.157Z</lastmod>
+    <lastmod>2021-06-28T03:25:16.902Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>https://fimon12138.github.io/notebook/tags/index.html</loc>
     
     <lastmod>2021-06-27T01:37:56.219Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>https://fimon12138.github.io/notebook/categories/index.html</loc>
     
     <lastmod>2021-06-27T01:37:56.199Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/about/index.html</loc>
+    <loc>https://fimon12138.github.io/notebook/about/index.html</loc>
     
     <lastmod>2021-06-27T01:37:56.188Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/06/26/hello-world/</loc>
-    
-    <lastmod>2021-06-26T12:46:45.845Z</lastmod>
     
   </url>
   
