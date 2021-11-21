@@ -3,17 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Fimon&#39;s Wiki</title>
+    <title>union find | Fimon&#39;s Wiki</title>
     
     
-        <meta name="keywords" content="Fimon&#39;s Wiki" />
+        <meta name="keywords" content="union find" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Fimon&#39;s Wiki">
-<meta property="og:url" content="http://wiki.hellofimon.icu/index.html">
+    <meta name="description" content="Quick-find Data structure: integer array id[] of length N;  Union: to union p and q, change all entries whose id equals id[p] to id[q];  Find: check if p and q have the same id;  Time Complexity: O(n)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="union find">
+<meta property="og:url" content="http://wiki.hellofimon.icu/wiki/Algorithms/algs4-Princeton/union-find/index.html">
 <meta property="og:site_name" content="Fimon&#39;s Wiki">
+<meta property="og:description" content="Quick-find Data structure: integer array id[] of length N;  Union: to union p and q, change all entries whose id equals id[p] to id[q];  Find: check if p and q have the same id;  Time Complexity: O(n)">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-10T08:08:00.000Z">
+<meta property="article:modified_time" content="2021-11-11T04:33:13.683Z">
 <meta property="article:author" content="Fimon">
 <meta name="twitter:card" content="summary">
     
@@ -168,20 +172,20 @@
         
         
          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Algorithms
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             algs4-Princeton
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Algorithms/algs4-Princeton/union-find/">union find</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/Algorithms/algs4-Princeton/union-find/">union find</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -265,8 +269,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-    <article id="post-index" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Algorithms/algs4-Princeton/union-find" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -274,12 +277,17 @@
                 
                     <div class="article-meta">
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithms/algs4-Princeton/">algs4-Princeton</a>
+    </div>
+
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/index/">
-            <time datetime="2021-06-29T07:30:33.000Z" itemprop="datePublished">2021-06-29</time>
+        <a href="/wiki/Algorithms/algs4-Princeton/union-find/">
+            <time datetime="2021-11-10T08:08:00.000Z" itemprop="datePublished">2021-11-10</time>
         </a>
     </div>
 
@@ -290,13 +298,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/raw/master/source/_posts/index.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/raw/master/source/_posts/Algorithms/algs4-Princeton/union-find.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/edit/master/source/_posts/index.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/edit/master/source/_posts/Algorithms/algs4-Princeton/union-find.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/commits/master/source/_posts/index.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/commits/master/source/_posts/Algorithms/algs4-Princeton/union-find.md'> History </a>
                             </div>
                         
                     </div>
@@ -304,7 +312,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Welcome to Fimon&#39;s Wiki Site
+            union find
         </h1>
     
 
@@ -317,16 +325,57 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-find"><span class="toc-number">1.</span> <span class="toc-text">Quick-find</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-union"><span class="toc-number">2.</span> <span class="toc-text">Quick-union</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Weighted-Quick-union"><span class="toc-number">3.</span> <span class="toc-text">Weighted Quick-union</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-union-with-path-compression"><span class="toc-number">4.</span> <span class="toc-text">Quick-union with path compression</span></a></li></ol>
                 </div>
             
         
         
-            <p>这是我的个人Wiki站点，用于记录平时学习的内容，方便以后查阅。</p>
-<p>第一次接触Wiki这个词是20年夏天在Shopee深圳实习的时候，他们当时用的是Confluence，但是因为我那会主要做的是测试工具的开发，跟项目关联比较少，一个人在做，所以用的很少。不过对于第一次出来实习的我，这些工具还是给了我很大的冲击，以致在后来经常拿出来跟同学吹牛。</p>
-<p>后来继续去了美团北京实习。美团的Wiki一直是他们拿出来宣传的东西——学城，工作时确实经常会在上面看文档，没事的时候也会在上面随便翻翻。时间长了，没有像宣传中所说的从新手到高手，倒是看了好多乱七八糟的东西，比如大家的分享、实习生的面试记录、招聘排序等，我的问题。</p>
-<p>离职后觉得这样一个东西用来记记笔记还是很有必要的。当时最先了解到的是Wordpress，也搭建过自己的博客，但是总是不喜欢博客的那种风格，感觉博客更像是写给别人看的。后来也勉强用了一段时间，但是总感觉Wordpress有点复杂，对新手学习成本比较大，后来转而使用Github Pages，在翻Hexo主题时意外发现了这个主题，也算是一种缘分。</p>
-<p>总之，感谢Wikitten作者的辛勤付出，也希望我的站点里有一些对你有帮助的内容。</p>
+            <h2 id="Quick-find"><a href="#Quick-find" class="headerlink" title="Quick-find"></a>Quick-find</h2><ul>
+<li><p>Data structure: integer array id[] of length N;</p>
+</li>
+<li><p>Union: to union p and q, change all entries whose id equals id[p] to id[q];</p>
+</li>
+<li><p>Find: check if p and q have the same id;</p>
+</li>
+<li><p>Time Complexity: O(n) for union and O(1) for find;</p>
+<p>union is too expensive;</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> pid = id[p];</span><br><span class="line">	<span class="keyword">int</span> qid = id[q];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;id.length; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (id[i] == pid)</span><br><span class="line">			id[i] = qid;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> id[p] == id[q];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Quick-union"><a href="#Quick-union" class="headerlink" title="Quick-union"></a>Quick-union</h2><p>(lazy approach)</p>
+<ul>
+<li><p>Union: to union p and q, set the id of p’s root to q’s root;</p>
+</li>
+<li><p>Find: check if p and q have the same root;</p>
+</li>
+<li><p>Time complexity: O(n) for union and O(n) for find;</p>
+<p>trees can get very tall, and find will be expensive;</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">root</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (i != id[i])</span><br><span class="line">		i = id[i];</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = root(p);</span><br><span class="line">    <span class="keyword">int</span> j = root(q);</span><br><span class="line">    id[i] = j;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> root(p) == root(q);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Weighted-Quick-union"><a href="#Weighted-Quick-union" class="headerlink" title="Weighted Quick-union"></a>Weighted Quick-union</h2><ul>
+<li><p>Modify quick-union to avoid tall trees:</p>
+<ul>
+<li>keep track of size of each tree;</li>
+<li>balance by linking root of smaller tree to root of larger tree;</li>
+</ul>
+</li>
+<li><p>Time Complexity: O(lgN) for union and O(lgN) for find;</p>
+<p>Depth of any node is at most lgN (this can be proved);</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] sz = <span class="keyword">new</span> <span class="keyword">int</span>[id.length];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = root(p);</span><br><span class="line">    <span class="keyword">int</span> j = root(q);</span><br><span class="line">    <span class="keyword">if</span> (i != j) &#123;</span><br><span class="line">        <span class="keyword">if</span> (sz[i] &lt; sz[j]) &#123;</span><br><span class="line">            id[i] = j;</span><br><span class="line">            sz[j] += sz[i];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            id[j] = i;</span><br><span class="line">            sz[i] += sz[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Quick-union-with-path-compression"><a href="#Quick-union-with-path-compression" class="headerlink" title="Quick-union with path compression"></a>Quick-union with path compression</h2><ul>
+<li>After computing root of p, set the id of each examined node to point to that root;</li>
+<li>Time complexity: O(lg*N) for both union and find;</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">root</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (i != id[i]) &#123;</span><br><span class="line">        id[i] = id[id[i]];</span><br><span class="line">        i = id[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
             </div>
         
@@ -339,19 +388,10 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/Algorithms/algs4-Princeton/union-find/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    union find
-                
-            </div>
-        </a>
     
-    
-        <a href="/wiki/%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99/%E6%90%AD%E5%BB%BA%E6%AD%A5%E9%AA%A4/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/index/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">搭建步骤</div>
+            <div class="article-nav-title">Welcome to Fimon&#39;s Wiki Site</div>
         </a>
     
 </nav>
@@ -370,8 +410,6 @@
 <script type="text/javascript">
     !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
 </script>     
-
-
 </section>
         </div>
         <footer id="footer">
