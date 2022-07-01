@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wiki.hellofimon.icu/"/>
-  <updated>2022-06-19T01:45:31.246Z</updated>
+  <updated>2022-07-01T01:52:04.091Z</updated>
   <id>http://wiki.hellofimon.icu/</id>
   
   <author>
@@ -17,26 +17,57 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Bits, Bytes, and Integers</title>
-    <link href="http://wiki.hellofimon.icu/wiki/ATZ/CSAPP/L1/"/>
-    <id>http://wiki.hellofimon.icu/wiki/ATZ/CSAPP/L1/</id>
-    <published>2022-06-18T12:38:00.000Z</published>
-    <updated>2022-06-19T01:45:31.246Z</updated>
+    <title>Floating Point</title>
+    <link href="http://wiki.hellofimon.icu/wiki/ATZ/CSAPP/Floating_Point/"/>
+    <id>http://wiki.hellofimon.icu/wiki/ATZ/CSAPP/Floating_Point/</id>
+    <published>2022-06-30T12:51:00.000Z</published>
+    <updated>2022-07-01T01:52:04.091Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Bits-Bytes-and-Integers"><a href="#Bits-Bytes-and-Integers" class="headerlink" title="Bits, Bytes, and Integers"></a>Bits, Bytes, and Integers</h1><ul><li><p>Shift Operations</p><ul><li><p>right shift: x &gt;&gt; y</p><p>logical shift: fill with 0s on left;</p><p>arithmetic shift: replicate most significant bit on left;</p></li><li><p>undefined behavior </p><p>shift amount &lt; 0 or &gt;= word size</p><p>e.g. x &lt;&lt; 8, while x is a byte, usually the result will be x, because they will do 8 % 8 first;</p></li></ul></li><li><p>Numeric Ranges</p><p>signed value: 10010: -16 + 2 = -14</p><p>so the minimum number is 10000 = -16</p><p>the maximum number is 01111 = 15</p><p>so the range is $-2^{w-1}$ ~ $2^{w-1}-1$</p><p>11111 = -1; (signed) x1 = 10110 = -10, (unsigned) x2 = 10110 = 22, x2 - x1 = 32;</p></li><li><p>Signed and Unsigned in C</p><ul><li>If there is a mix of unsigned and signed in single expression, signed values implicitly cast to unsigned. <strong>This includes comparison operations</strong>, so sometimes it will lead to unanticipated outcomes when comparing signed numbers and unsigned numbers.</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">abs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> x &lt; <span class="number">0</span> ? -x : x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>when x = $T_{MIN}$ in above code, it will still return $T_{MIN}$ (corner case);</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i=n; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// this will never stop, i always &gt;= 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=n; i-<span class="keyword">sizeof</span>(<span class="keyword">char</span>)&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// this will also never stop, sizeof() returns an unsigned value</span></span><br></pre></td></tr></table></figure></li><li><p>Sign extension</p><p>(4 digits) 1011 -&gt; (6 digits) 111011 </p></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Representation"><a href="#Representation" class="headerlink" title="Representation"></a>Representation</h2><p>$(-1)^s M;2^E$ </p><p><img src="https://cdn.jsdelivr.net/gh/Fimon12138/img-bed@master/dilg4n.png"></p><p><strong>“Normalized” Values</strong></p><p>when exp is not all 0s or all 1s</p><p><img src="https://cdn.jsdelivr.net/gh/Fimon12138/img-bed@master/0JYdoI.png"></p><p>For the exponent, we use bias representation instead of two’s complement, in this way, we can compare 2 float numbers by bits.</p><p><strong>“Denormalized” Values</strong></p><p><img src="https://cdn.jsdelivr.net/gh/Fimon12138/img-bed@master/PlXZw1.png">the normalized value can’t represent 0;</p><p><strong>Special values</strong></p><p><img src="https://cdn.jsdelivr.net/gh/Fimon12138/img-bed@master/AdNqwk.png"></p><p><img src="https://cdn.jsdelivr.net/gh/Fimon12138/img-bed@master/LLJqaP.png"></p><p>Special properties of the IEEE encoding</p><p>0: all bits = 0, the same as integer zero</p><p>can almost use unsigned integer comparison, exception: nans, - infinity</p><h2 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h2><blockquote><p>Rounding Modes:</p><p>towards zero</p><p>round down</p><p>round up</p><p>nearest even</p></blockquote><p><em>See slides for details of multiplication and addition</em></p><p>Add is commutative but not associative (due to rounding);</p><p>Multiplication is similar;</p><p><strong>Floating point isn’t associative</strong></p><h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p><img src="https://cdn.jsdelivr.net/gh/Fimon12138/img-bed@master/XOWBkW.png"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;Bits-Bytes-and-Integers&quot;&gt;&lt;a href=&quot;#Bits-Bytes-and-Integers&quot; class=&quot;headerlink&quot; title=&quot;Bits, Bytes, and Integers&quot;&gt;&lt;/a&gt;Bits, Bytes, an
+        &lt;h2 id=&quot;Representation&quot;&gt;&lt;a href=&quot;#Representation&quot; class=&quot;headerlink&quot; title=&quot;Representation&quot;&gt;&lt;/a&gt;Representation&lt;/h2&gt;&lt;p&gt;$(-1)^s M;2^E$ &lt;/p&gt;
+&lt;p
       
     
     </summary>
     
-      <category term="ATZ" scheme="http://wiki.hellofimon.icu/categories/ATZ/"/>
+      <category term="System" scheme="http://wiki.hellofimon.icu/categories/System/"/>
     
-      <category term="csapp" scheme="http://wiki.hellofimon.icu/categories/ATZ/csapp/"/>
+      <category term="csapp" scheme="http://wiki.hellofimon.icu/categories/System/csapp/"/>
+    
+    
+      <category term="system" scheme="http://wiki.hellofimon.icu/tags/system/"/>
+    
+      <category term="csapp" scheme="http://wiki.hellofimon.icu/tags/csapp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bits, Bytes, and Integers</title>
+    <link href="http://wiki.hellofimon.icu/wiki/ATZ/CSAPP/Integer/"/>
+    <id>http://wiki.hellofimon.icu/wiki/ATZ/CSAPP/Integer/</id>
+    <published>2022-06-18T12:38:00.000Z</published>
+    <updated>2022-07-01T01:50:43.729Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Shift-Operations"><a href="#Shift-Operations" class="headerlink" title="Shift Operations"></a>Shift Operations</h2><ul><li><p>right shift: x &gt;&gt; y</p><p>logical shift: fill with 0s on left;</p><p>arithmetic shift: replicate most significant bit on left;</p></li><li><p>undefined behavior </p><p>shift amount &lt; 0 or &gt;= word size</p><p>e.g. x &lt;&lt; 8, while x is a byte, usually the result will be x, because they will do 8 % 8 first;</p></li></ul><h2 id="Numeric-Ranges"><a href="#Numeric-Ranges" class="headerlink" title="Numeric Ranges"></a>Numeric Ranges</h2><p>signed value: 10010: -16 + 2 = -14</p><p>so the minimum number is 10000 = -16</p><p>the maximum number is 01111 = 15</p><p>so the range is $-2^{w-1}$ ~ $2^{w-1}-1$</p><p>11111 = -1; (signed) x1 = 10110 = -10, (unsigned) x2 = 10110 = 22, x2 - x1 = 32;</p><h2 id="Signed-and-Unsigned-in-C"><a href="#Signed-and-Unsigned-in-C" class="headerlink" title="Signed and Unsigned in C"></a>Signed and Unsigned in C</h2><ul><li>If there is a mix of unsigned and signed in single expression, signed values implicitly cast to unsigned. <strong>This includes comparison operations</strong>, so sometimes it will lead to unanticipated outcomes when comparing signed numbers and unsigned numbers.</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">abs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> x &lt; <span class="number">0</span> ? -x : x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>when x = $T_{MIN}$ in above code, it will still return $T_{MIN}$ (corner case);</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i=n; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// this will never stop, i always &gt;= 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=n; i-<span class="keyword">sizeof</span>(<span class="keyword">char</span>)&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// this will also never stop, sizeof() returns an unsigned value</span></span><br></pre></td></tr></table></figure><h2 id="Sign-extension"><a href="#Sign-extension" class="headerlink" title="Sign extension"></a>Sign extension</h2><p>(4 digits) 1011 -&gt; (6 digits) 111011 </p><h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>gcc -m64 / -m32, two flags for different systems;</p><p><img src="https://cdn.jsdelivr.net/gh/Fimon12138/img-bed@master/Q6ZEOP.png"></p><p>for int x, every positive number has its negtive number, but not every negative number has its postive number: y=$T_{min}$, and -y will still be $T_{min}$, this can be seen from the range of $T$.</p><p>​        </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Shift-Operations&quot;&gt;&lt;a href=&quot;#Shift-Operations&quot; class=&quot;headerlink&quot; title=&quot;Shift Operations&quot;&gt;&lt;/a&gt;Shift Operations&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;right
+      
+    
+    </summary>
+    
+      <category term="System" scheme="http://wiki.hellofimon.icu/categories/System/"/>
+    
+      <category term="csapp" scheme="http://wiki.hellofimon.icu/categories/System/csapp/"/>
     
     
       <category term="system" scheme="http://wiki.hellofimon.icu/tags/system/"/>

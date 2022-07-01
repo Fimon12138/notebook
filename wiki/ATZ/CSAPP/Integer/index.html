@@ -9,19 +9,21 @@
         <meta name="keywords" content="system,csapp" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Bits, Bytes, and Integers Shift Operations  right shift: x &gt;&gt; y logical shift: fill with 0s on left; arithmetic shift: replicate most significant bit on left;  undefined behavior  shift amount &amp;">
+    <meta name="description" content="Shift Operations right shift: x &gt;&gt; y logical shift: fill with 0s on left; arithmetic shift: replicate most significant bit on left;  undefined behavior  shift amount &lt; 0 or &gt;&#x3D; word size e.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bits, Bytes, and Integers">
-<meta property="og:url" content="http://wiki.hellofimon.icu/wiki/ATZ/CSAPP/L1/index.html">
+<meta property="og:url" content="http://wiki.hellofimon.icu/wiki/ATZ/CSAPP/Integer/index.html">
 <meta property="og:site_name" content="Fimon&#39;s Wiki">
-<meta property="og:description" content="Bits, Bytes, and Integers Shift Operations  right shift: x &gt;&gt; y logical shift: fill with 0s on left; arithmetic shift: replicate most significant bit on left;  undefined behavior  shift amount &amp;">
+<meta property="og:description" content="Shift Operations right shift: x &gt;&gt; y logical shift: fill with 0s on left; arithmetic shift: replicate most significant bit on left;  undefined behavior  shift amount &lt; 0 or &gt;&#x3D; word size e.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Fimon12138/img-bed@master/Q6ZEOP.png">
 <meta property="article:published_time" content="2022-06-18T12:38:00.000Z">
-<meta property="article:modified_time" content="2022-06-19T01:45:31.246Z">
+<meta property="article:modified_time" content="2022-07-01T01:50:43.729Z">
 <meta property="article:author" content="Fimon">
 <meta property="article:tag" content="system">
 <meta property="article:tag" content="csapp">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Fimon12138/img-bed@master/Q6ZEOP.png">
     
 
     
@@ -174,9 +176,9 @@
         
         
          <ul class="unstyled" id="tree" > 
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             ATZ
                         </a>
@@ -189,14 +191,23 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/ATZ/algs4-Princeton/union-find/">union find</a></li>  <li class="file"><a href="/wiki/ATZ/algs4-Princeton/stacks-and-queues/">stacks and queues</a></li>  <li class="file"><a href="/wiki/ATZ/algs4-Princeton/sort/">sort</a></li>  <li class="file"><a href="/wiki/ATZ/algs4-Princeton/priority-queue/">priority queue</a></li>  </ul> 
                     </li> 
+                     </ul> 
+                    </li> 
                     
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            System
+                        </a>
+                         <ul class="unstyled" id="tree" > 
                     <li class="directory open">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
                             csapp
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/ATZ/CSAPP/L1/">Bits, Bytes, and Integers</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/ATZ/CSAPP/Integer/">Bits, Bytes, and Integers</a></li>  <li class="file"><a href="/wiki/ATZ/CSAPP/Floating_Point/">Floating Point</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -289,7 +300,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-ATZ/CSAPP/L1" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-ATZ/CSAPP/Integer" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -299,7 +310,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/ATZ/">ATZ</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/ATZ/csapp/">csapp</a>
+        <a class="article-category-link" href="/categories/System/">System</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/System/csapp/">csapp</a>
     </div>
 
                         
@@ -311,7 +322,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/ATZ/CSAPP/L1/">
+        <a href="/wiki/ATZ/CSAPP/Integer/">
             <time datetime="2022-06-18T12:38:00.000Z" itemprop="datePublished">2022-06-18</time>
         </a>
     </div>
@@ -323,13 +334,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/raw/master/source/_posts/ATZ/CSAPP/L1.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/raw/master/source/_posts/ATZ/CSAPP/Integer.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/edit/master/source/_posts/ATZ/CSAPP/L1.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/edit/master/source/_posts/ATZ/CSAPP/Integer.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/commits/master/source/_posts/ATZ/CSAPP/L1.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/Fimon12138/notebook/commits/master/source/_posts/ATZ/CSAPP/Integer.md'> History </a>
                             </div>
                         
                     </div>
@@ -350,14 +361,12 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Bits-Bytes-and-Integers"><span class="toc-number">1.</span> <span class="toc-text">Bits, Bytes, and Integers</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shift-Operations"><span class="toc-number">1.</span> <span class="toc-text">Shift Operations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Numeric-Ranges"><span class="toc-number">2.</span> <span class="toc-text">Numeric Ranges</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Signed-and-Unsigned-in-C"><span class="toc-number">3.</span> <span class="toc-text">Signed and Unsigned in C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sign-extension"><span class="toc-number">4.</span> <span class="toc-text">Sign extension</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">5.</span> <span class="toc-text">Summary</span></a></li></ol>
                 </div>
             
         
         
-            <h1 id="Bits-Bytes-and-Integers"><a href="#Bits-Bytes-and-Integers" class="headerlink" title="Bits, Bytes, and Integers"></a>Bits, Bytes, and Integers</h1><ul>
-<li><p>Shift Operations</p>
-<ul>
+            <h2 id="Shift-Operations"><a href="#Shift-Operations" class="headerlink" title="Shift Operations"></a>Shift Operations</h2><ul>
 <li><p>right shift: x &gt;&gt; y</p>
 <p>logical shift: fill with 0s on left;</p>
 <p>arithmetic shift: replicate most significant bit on left;</p>
@@ -367,26 +376,24 @@
 <p>e.g. x &lt;&lt; 8, while x is a byte, usually the result will be x, because they will do 8 % 8 first;</p>
 </li>
 </ul>
-</li>
-<li><p>Numeric Ranges</p>
-<p>signed value: 10010: -16 + 2 = -14</p>
+<h2 id="Numeric-Ranges"><a href="#Numeric-Ranges" class="headerlink" title="Numeric Ranges"></a>Numeric Ranges</h2><p>signed value: 10010: -16 + 2 = -14</p>
 <p>so the minimum number is 10000 = -16</p>
 <p>the maximum number is 01111 = 15</p>
 <p>so the range is $-2^{w-1}$ ~ $2^{w-1}-1$</p>
 <p>11111 = -1; (signed) x1 = 10110 = -10, (unsigned) x2 = 10110 = 22, x2 - x1 = 32;</p>
-</li>
-<li><p>Signed and Unsigned in C</p>
-<ul>
+<h2 id="Signed-and-Unsigned-in-C"><a href="#Signed-and-Unsigned-in-C" class="headerlink" title="Signed and Unsigned in C"></a>Signed and Unsigned in C</h2><ul>
 <li>If there is a mix of unsigned and signed in single expression, signed values implicitly cast to unsigned. <strong>This includes comparison operations</strong>, so sometimes it will lead to unanticipated outcomes when comparing signed numbers and unsigned numbers.</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">abs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> x &lt; <span class="number">0</span> ? -x : x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>when x = $T_{MIN}$ in above code, it will still return $T_{MIN}$ (corner case);</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i=n; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// this will never stop, i always &gt;= 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=n; i-<span class="keyword">sizeof</span>(<span class="keyword">char</span>)&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// this will also never stop, sizeof() returns an unsigned value</span></span><br></pre></td></tr></table></figure></li>
-<li><p>Sign extension</p>
-<p>(4 digits) 1011 -&gt; (6 digits) 111011 </p>
-</li>
-</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i=n; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// this will never stop, i always &gt;= 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=n; i-<span class="keyword">sizeof</span>(<span class="keyword">char</span>)&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// this will also never stop, sizeof() returns an unsigned value</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Sign-extension"><a href="#Sign-extension" class="headerlink" title="Sign extension"></a>Sign extension</h2><p>(4 digits) 1011 -&gt; (6 digits) 111011 </p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>gcc -m64 / -m32, two flags for different systems;</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fimon12138/img-bed@master/Q6ZEOP.png"></p>
+<p>for int x, every positive number has its negtive number, but not every negative number has its postive number: y=$T_{min}$, and -y will still be $T_{min}$, this can be seen from the range of $T$.</p>
+<p>​        </p>
 
             </div>
         
@@ -398,6 +405,15 @@
 
     
 <nav id="article-nav">
+    
+        <a href="/wiki/ATZ/CSAPP/Floating_Point/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Floating Point
+                
+            </div>
+        </a>
     
     
         <a href="/wiki/ATZ/algs4-Princeton/priority-queue/" id="article-nav-older" class="article-nav-link-wrap">

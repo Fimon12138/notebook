@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://wiki.hellofimon.icu/wiki/ATZ/CSAPP/L1/</loc>
+    <loc>http://wiki.hellofimon.icu/wiki/ATZ/CSAPP/Floating_Point/</loc>
     
-    <lastmod>2022-06-19T01:45:31.246Z</lastmod>
+    <lastmod>2022-07-01T01:52:04.091Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wiki.hellofimon.icu/wiki/ATZ/CSAPP/Integer/</loc>
+    
+    <lastmod>2022-07-01T01:50:43.729Z</lastmod>
     
   </url>
   
